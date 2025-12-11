@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ขอเป็นแฟนนะ 💖</title>
+
+    <style>
+        body {
+            font-family: 'Prompt', sans-serif;
+            background: #ffe6f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            text-align: center;
+        }
+        h1 {
+            color: #ff4081;
+            font-size: 2.5rem;
+        }
+        button {
+            padding: 12px 24px;
+            margin: 10px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        #yesBtn {
+            background-color: #ff66b3;
+            color: white;
+        }
+        #noBtn {
+            background-color: #bfbfbf;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>เราเป็นแฟนกันนะ ❤️</h1>
+
+    <button id="yesBtn" onclick="yes()">ตกลง</button>
+    <button id="noBtn" onmouseover="move()" onclick="move()">ไม่ตกลง</button>
+
+    <script>
+        function yes() {
+            document.body.innerHTML = `
+                <h1 style="color:#ff4081; font-size:3rem;">
+                    เย้! เราเป็นแฟนกันแล้วนะ 💗🎉
+                </h1>
+            `;
+        }
+
+        function move() {
+            const btn = document.getElementById("noBtn");
+            const maxX = window.innerWidth - 150;
+            const maxY = window.innerHeight - 80;
+
+            const x = Math.random() * maxX;
+            const y = Math.random() * maxY;
+
+            btn.style.left = x + "px";
+            btn.style.top = y + "px";
+        }
+    </script>
+
+</body>
+</html>
