@@ -27,7 +27,7 @@
       z-index: 2;
     }
 
-    .couple {
+    .64707 {
       width: 100%;
       border-radius: 16px;
       margin-top: 20px;
@@ -121,9 +121,10 @@
       ตั้งแต่วันที่เราเจอกัน ชีวิตของฉันก็เต็มไปด้วยรอยยิ้ม<br>
       ขอบคุณที่อยู่ข้างกันเสมอ 💑
     </p>
-    <img src="couple.jpg" alt="รูปคู่ของเรา" class="couple" />
+    <img src="64707.jpg" alt="รูปคู่ของเรา" class="64707" />
 
-    <button onclick="showLove()">กดตรงนี้สิ 💌</button>
+    <button onclick="showLove()">ตกลง 💖</button>
+    <button id="noBtn" onmouseover="runAway()" style="margin-left:10px;background:#ffd1dc;color:#ff4d6d;">ไม่ตกลง 😝</button>
   </div>
 
   <div class="card hidden" id="page2">
@@ -144,6 +145,13 @@
       document.getElementById('page1').classList.add('hidden');
       document.getElementById('page2').classList.remove('hidden');
       createHearts();
+    }
+
+    function runAway() {
+      const btn = document.getElementById('noBtn');
+      const x = Math.random() * 200 - 100;
+      const y = Math.random() * 200 - 100;
+      btn.style.transform = `translate(${x}px, ${y}px)`;
     }
 
     function createHearts() {
