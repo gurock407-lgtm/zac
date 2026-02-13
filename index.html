@@ -2,64 +2,75 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8">
-<title>Happy Valentine</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valentine Music</title>
 
 <style>
   body {
-    background-color: #ffe6f0;
+    margin: 0;
+    background: linear-gradient(to bottom, #ff758c, #ff7eb3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     text-align: center;
     font-family: Arial, sans-serif;
-    margin-top: 100px;
+    color: white;
   }
 
-  h1 {
-    color: #ff3366;
+  .box {
+    padding: 20px;
   }
 
   .heart {
-    font-size: 80px;
+    font-size: 70px;
     animation: beat 1s infinite;
   }
 
   @keyframes beat {
     0% { transform: scale(1); }
-    50% { transform: scale(1.2); }
+    50% { transform: scale(1.3); }
     100% { transform: scale(1); }
   }
 
   button {
-    padding: 10px 20px;
-    font-size: 18px;
-    background-color: #ff4d6d;
-    color: white;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
     margin-top: 20px;
+    padding: 12px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 25px;
+    background-color: white;
+    color: #ff4d6d;
+    font-weight: bold;
   }
 
   #message {
-    display: none;
-    font-size: 22px;
-    color: #cc0066;
     margin-top: 20px;
+    font-size: 20px;
+    display: none;
   }
 </style>
 </head>
 
 <body>
 
-<h1>Happy Valentine's Day 💖</h1>
-<div class="heart">❤️</div>
+<div class="box">
+  <h1>กดเพื่อรับความรัก 💕</h1>
+  <div class="heart">❤️</div>
+  <button onclick="playLove()">กดเลย 💘</button>
+  <div id="message">แซ็กรักยี่สิบนะ ❤️ จะจับมือที่รักไม่ปล่อยเลย 💖</div>
+</div>
 
-<button onclick="showLove()">กดตรงนี้สิ 💘</button>
-
-<div id="message">แซ็กรักยี่สิบนะ ❤️ ขอบคุณมากๆเลยนะครับ 💕</div>
+<!-- เพลง (ตัวอย่างเพลงโรแมนติกฟรี) -->
+<audio id="loveSong">
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
 
 <script>
-  function showLove() {
-    document.getElementById("message").style.display = "block";
-  }
+function playLove() {
+  document.getElementById("message").style.display = "block";
+  document.getElementById("loveSong").play();
+}
 </script>
 
 </body>
