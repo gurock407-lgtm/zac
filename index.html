@@ -1,186 +1,23 @@
 <!DOCTYPE html>
-<html lang="th">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>สำหรับเธอคนพิเศษ 💖</title>
+  <meta charset="UTF-8">
+  <title>Happy Valentine</title>
   <style>
     body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-      color: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+      background-color: #ffe6f0;
       text-align: center;
-      overflow: hidden;
+      font-family: Arial, sans-serif;
+      margin-top: 100px;
     }
 
-    .card {
-      background: rgba(255,255,255,0.15);
-      padding: 40px;
-      border-radius: 20px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-      max-width: 420px;
-      z-index: 2;
+    h1 {
+      color: #ff3366;
     }
 
-    .couple {
-  width: 55%;
-  display: block;
-  margin: 20px auto;
-  border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-}
-
-    h1 { font-size: 2.2rem; margin-bottom: 10px; }
-    p { font-size: 1.1rem; line-height: 1.6; }
-
-    button {
-      margin-top: 25px;
-      padding: 12px 28px;
-      border: none;
-      border-radius: 30px;
-      font-size: 1rem;
-      cursor: pointer;
-      background: #fff;
-      color: #ff6f91;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-
-    button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-    }
-
-    .hidden {
-      display: none;
-      margin-top: 20px;
-      font-size: 1.2rem;
-    }
-
-    /* Heart */
     .heart {
-      position: fixed;
-      bottom: -40px;
-      width: var(--size);
-      height: var(--size);
-      background: #ff6fae;
-      transform: rotate(45deg);
-      animation: floatUp var(--duration) linear forwards;
-      opacity: 0.9;
-      z-index: 1;
+      font-size: 80px;
+      animation: beat 1s infinite;
     }
 
-    .heart::before,
-    .heart::after {
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: #ff6fae;
-      border-radius: 50%;
-    }
-
-    .heart::before { top: -50%; left: 0; }
-    .heart::after { left: -50%; top: 0; }
-
-    @keyframes floatUp {
-      from {
-        transform: translateX(0) translateY(0) rotate(45deg);
-        opacity: 1;
-      }
-      to {
-        transform: translateX(var(--drift)) translateY(-120vh) rotate(45deg);
-        opacity: 0;
-      }
-    }
-
-    /* Sparkle */
-    .sparkle {
-      position: fixed;
-      width: 6px;
-      height: 6px;
-      background: rgba(255,255,255,0.9);
-      border-radius: 50%;
-      animation: sparkle 2s linear forwards;
-      z-index: 0;
-    }
-
-    @keyframes sparkle {
-      from { opacity: 1; transform: scale(1); }
-      to { opacity: 0; transform: scale(0); }
-    }
-  </style>
-</head>
-<body>
-  <div class="card" id="page1">
-    <h1>ถึงเธอคนพิเศษ 💕</h1>
-    <p>
-      ตั้งแต่วันที่เราเจอกัน ชีวิตของฉันก็เต็มไปด้วยรอยยิ้ม<br>
-      ขอบคุณที่อยู่ข้างกันเสมอ 💑
-    </p>
-    <img src="64707.jpg" alt="รูปคู่ของเรา" class="couple" />
-
-    <button onclick="showLove()">ตกลง 💖</button>
-    <button id="noBtn" onmouseover="runAway()" style="margin-left:10px;background:#ffd1dc;color:#ff4d6d;">ไม่ตกลง 😝</button>
-  </div>
-
-  <div class="card hidden" id="page2">
-    <h1>ข้อความจากใจ 💖</h1>
-    <p style="font-size:1.3rem;">
-      ฉันรักเธอมากนะ<br>
-      ขอบคุณที่เข้ามาเป็นส่วนหนึ่งของชีวิตฉัน ❤️
-    </p>
-  </div>
-  </div>
-
-  <script>
-    window.onload = () => {
-      setInterval(createHearts, 400);
-    };
-
-    function showLove() {
-      document.getElementById('page1').classList.add('hidden');
-      document.getElementById('page2').classList.remove('hidden');
-      createHearts();
-    }
-
-    function runAway() {
-      const btn = document.getElementById('noBtn');
-      const x = Math.random() * 200 - 100;
-      const y = Math.random() * 200 - 100;
-      btn.style.transform = `translate(${x}px, ${y}px)`;
-    }
-
-    function createHearts() {
-      for (let i = 0; i < 10; i++) {
-        const heart = document.createElement('div');
-        const size = 12 + Math.random() * 28;
-        const duration = 4 + Math.random() * 4;
-        const drift = (Math.random() * 100 - 50) + 'px';
-
-        heart.className = 'heart';
-        heart.style.left = Math.random() * 100 + 'vw';
-        heart.style.setProperty('--size', size + 'px');
-        heart.style.setProperty('--duration', duration + 's');
-        heart.style.setProperty('--drift', drift);
-        document.body.appendChild(heart);
-
-        const sparkle = document.createElement('div');
-        sparkle.className = 'sparkle';
-        sparkle.style.left = heart.style.left;
-        sparkle.style.bottom = '0px';
-        document.body.appendChild(sparkle);
-
-        setTimeout(() => {
-          heart.remove();
-          sparkle.remove();
-        }, duration * 1000);
-      }
-    }
-  </script>
-</body>
-</html>
+    @keyfram
