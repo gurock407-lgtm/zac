@@ -1,23 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <title>Happy Valentine</title>
-  <style>
-    body {
-      background-color: #ffe6f0;
-      text-align: center;
-      font-family: Arial, sans-serif;
-      margin-top: 100px;
-    }
+<meta charset="UTF-8">
+<title>Happy Valentine</title>
 
-    h1 {
-      color: #ff3366;
-    }
+<style>
+  body {
+    background-color: #ffe6f0;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    margin-top: 100px;
+  }
 
-    .heart {
-      font-size: 80px;
-      animation: beat 1s infinite;
-    }
+  h1 {
+    color: #ff3366;
+  }
 
-    @keyfram
+  .heart {
+    font-size: 80px;
+    animation: beat 1s infinite;
+  }
+
+  @keyframes beat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+  }
+
+  button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #ff4d6d;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+
+  #message {
+    display: none;
+    font-size: 22px;
+    color: #cc0066;
+    margin-top: 20px;
+  }
+</style>
+</head>
+
+<body>
+
+<h1>Happy Valentine's Day 💖</h1>
+<div class="heart">❤️</div>
+
+<button onclick="showLove()">กดตรงนี้สิ 💘</button>
+
+<div id="message">รักนะ ❤️ เป็นแฟนกันไหม 💕</div>
+
+<script>
+  function showLove() {
+    document.getElementById("message").style.display = "block";
+  }
+</script>
+
+</body>
+</html>
