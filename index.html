@@ -3,23 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Valentine Music</title>
+<title>Sweet Valentine</title>
 
 <style>
   body {
     margin: 0;
-    background: linear-gradient(to bottom, #ff758c, #ff7eb3);
+    background-color: #ffd6e7; /* ชมพูอ่อน */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     text-align: center;
     font-family: Arial, sans-serif;
-    color: white;
+    color: #d63384;
   }
 
   .box {
-    padding: 20px;
+    padding: 30px;
+  }
+
+  h1 {
+    font-size: 26px;
   }
 
   .heart {
@@ -29,19 +33,20 @@
 
   @keyframes beat {
     0% { transform: scale(1); }
-    50% { transform: scale(1.3); }
+    50% { transform: scale(1.25); }
     100% { transform: scale(1); }
   }
 
   button {
     margin-top: 20px;
-    padding: 12px 25px;
+    padding: 12px 28px;
     font-size: 18px;
     border: none;
-    border-radius: 25px;
+    border-radius: 30px;
     background-color: white;
-    color: #ff4d6d;
+    color: #ff4d94;
     font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   }
 
   #message {
@@ -55,15 +60,15 @@
 <body>
 
 <div class="box">
-  <h1>กดเพื่อรับความรัก 💕</h1>
-  <div class="heart">❤️</div>
-  <button onclick="playLove()">กดเลย 💘</button>
-  <div id="message">แซ็กรักยี่สิบนะ ❤️ จะจับมือที่รักไม่ปล่อยเลย 💖</div>
+  <h1>สำหรับคนพิเศษของฉัน 💕</h1>
+  <div class="heart">💗</div>
+  <button onclick="playLove()">กดตรงนี้สิ 💘</button>
+  <div id="message">แซ็กรักยี่สิบนะ ❤️ อยู่ด้วยกันแบบนี้ไปนาน ๆ เลยนะ 💖</div>
 </div>
 
-<!-- เพลง (ตัวอย่างเพลงโรแมนติกฟรี) -->
 <audio id="loveSong">
-  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+  <!-- เพลงบรรเลงหวาน ๆ -->
+  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
 </audio>
 
 <script>
