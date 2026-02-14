@@ -3,78 +3,93 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sweet Valentine</title>
+<title>My Sweet Love</title>
 
 <style>
   body {
     margin: 0;
-    background-color: #ffd6e7; /* ชมพูอ่อน */
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(to top, #ffe6f0, #fff0f5);
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    text-align: center;
-    font-family: Arial, sans-serif;
-    color: #d63384;
+    font-family: 'Arial', sans-serif;
   }
 
-  .box {
-    padding: 30px;
+  .card {
+    background: white;
+    padding: 35px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(255,105,180,0.3);
+    max-width: 300px;
+    position: relative;
+    z-index: 2;
   }
 
   h1 {
-    font-size: 26px;
+    color: #ff4d94;
+    font-size: 24px;
   }
 
-  .heart {
-    font-size: 70px;
-    animation: beat 1s infinite;
-  }
-
-  @keyframes beat {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.25); }
-    100% { transform: scale(1); }
+  p {
+    color: #cc0066;
+    font-size: 18px;
+    margin-top: 15px;
+    display: none;
   }
 
   button {
     margin-top: 20px;
-    padding: 12px 28px;
-    font-size: 18px;
+    padding: 12px 25px;
     border: none;
     border-radius: 30px;
-    background-color: white;
-    color: #ff4d94;
-    font-weight: bold;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    background: linear-gradient(to right, #ff85a2, #ff4d94);
+    color: white;
+    font-size: 16px;
   }
 
-  #message {
-    margin-top: 20px;
-    font-size: 20px;
-    display: none;
+  .heart {
+    position: absolute;
+    color: #ff99cc;
+    animation: float 6s linear infinite;
+  }
+
+  @keyframes float {
+    from { transform: translateY(100vh); opacity: 1; }
+    to { transform: translateY(-10vh); opacity: 0; }
   }
 </style>
 </head>
 
 <body>
 
-<div class="box">
-  <h1>Happy Valentine's Day 💕</h1>
-  <div class="heart">💗</div>
-  <button onclick="playLove()">กดตรงนี้สิ 💘</button>
-  <div id="message">แซ็กรักยี่สิบนะ ❤️ อยู่ด้วยกันแบบนี้ไปนาน ๆ เลยนะครับ 💖</div>
+<div class="card">
+  <h1>To My Love 💖</h1>
+  <button onclick="showLove()">Happy Valentine's Day 💖 💘</button>
+  <p id="message">แซ็กรักยี่สิบนะ ❤️ อยู่ด้วยกันแบบไปนานๆเลยนะครับ 💕</p>
 </div>
 
-<audio id="loveSong">
-  <!-- เพลงบรรเลงหวาน ๆ -->
+<audio id="music">
   <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
 </audio>
 
 <script>
-function playLove() {
+function showLove() {
   document.getElementById("message").style.display = "block";
-  document.getElementById("loveSong").play();
+  document.getElementById("music").play();
+}
+
+/* สร้างหัวใจลอย */
+for (let i = 0; i < 20; i++) {
+  let heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "💗";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (Math.random() * 20 + 20) + "px";
+  heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+  document.body.appendChild(heart);
 }
 </script>
 
